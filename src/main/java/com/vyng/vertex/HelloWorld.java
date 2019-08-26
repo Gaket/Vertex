@@ -5,15 +5,17 @@ import io.vertx.core.Vertx;
 public class HelloWorld {
 
     public static void main(String[] args) {
+        String host = "0.0.0.0";
+        int port = Integer.parseInt(System.getenv("PORT"));
         // Create an HTTP server which simply returns "Hello World!" to each request.
         Vertx.vertx()
                 .createHttpServer()
                 .requestHandler(req -> req.response().end("Hello World!"))
-                .listen(8080, handler -> {
+                .listen(port, handler -> {
                     if (handler.succeeded()) {
-                        System.out.println("http://localhost:8080/");
+                        System.out.println("http://localhost:" + port + "/");
                     } else {
-                        System.err.println("Failed to listen on port 8080");
+                        System.err.println("Failed to listen on port " + port);
                     }
                 });
     }
