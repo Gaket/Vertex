@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dhttp.port=5000 -jar build/libs/Vertex-0.1-fat.jar
+web: java $JAVA_OPTS -Dhttp.port=$PORT -jar build/libs/Vertex-0.1-fat.jar
