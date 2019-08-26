@@ -20,12 +20,22 @@ dependencies {
     compile "io.vertx:vertx-core:3.8.1"
 }
 
-mainClassName = 'com.vyng.vertex.HelloWorld'
+mainClassName = 'io.vertx.core.Launcher'
+
+def mainVerticleName = 'com.vyng.vertex.HelloWorldVerticle'
 
 shadowJar {
     classifier = 'fat'
+    manifest {
+        attributes 'Main-Verticle': mainVerticleName
+    }
     mergeServiceFiles {
         include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
     }
 }
+
+run {
+    args = ['run', mainVerticleName, "--launcher-class=$mainClassName"]
+}
+
 
