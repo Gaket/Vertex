@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.vyng'
+version '0.1'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    maven {
+        url "https://oss.sonatype.org/content/repositories/iovertx-3844/"
+    }
+}
+
+dependencies {
+    compile "io.vertx:vertx-core:3.8.1"
+}
+
+mainClassName = 'com.vyng.vertex.HelloWorld'
+
