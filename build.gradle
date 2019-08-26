@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'application'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
 }
 
 group 'com.vyng'
@@ -20,4 +21,11 @@ dependencies {
 }
 
 mainClassName = 'com.vyng.vertex.HelloWorld'
+
+shadowJar {
+    classifier = 'fat'
+    mergeServiceFiles {
+        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+    }
+}
 
